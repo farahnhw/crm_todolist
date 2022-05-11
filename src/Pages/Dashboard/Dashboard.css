@@ -1,0 +1,23 @@
+.App {
+    font-color: rgb(0, 0, 0);
+  }
+  
+  .Navbar {
+    position: absolute;
+    width: 275px;
+    height: 100%;
+    background: #E3BEC6;
+  }
+  
+  .Navbar-logo {
+    font-size: 20px;
+    margin: 50px 75px;
+  }
+  
+  .Header{
+    margin-left:300px;
+  }
+  
+  .Container {
+  margin-top:30px;
+  }

@@ -17,30 +17,27 @@ import Projects from "../../images/project.svg"
 import { ReactSession } from 'react-client-session';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import Calendar from 'react-calendar';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels: ['Web App', 'Mobile App', 'Desktop'],
   datasets: [
     {
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: [12, 19, 3,],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
         'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
+        
       ],
       borderColor: [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
+        
       ],
       borderWidth: 1,
     },
@@ -59,7 +56,7 @@ function Dashboard() {
   })
 
   let navigate = useNavigate();
-
+  const [value, onChange] = useState(new Date());
   return (
     <>
       <div className="App">
@@ -125,42 +122,41 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="col-span-3 mx-24 ml-80">
+        <div className="col-span-3 mx-24 ml-80 mb-10">
           <div className="grid grid-cols-3 gap-x-4 mt-12">
 
             <div className=" card p-8 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
               <div className="flex mb-5">
-                <p className="bg-[#FFEED6] text-[#FD795C] p-5 text-3xl font-bold rounded-xl ">85</p>
+                <p className="bg-[#FFEED6] text-[#FD795C] p-5 text-3xl font-bold rounded-xl ">5</p>
               </div>
-              <p className="text-xl font-medium text-[#3F427B]">Total Pengguna</p>
+              <p className="text-xl font-medium text-[#3F427B]">Deliver</p>
             </div>
 
             <div className=" card p-8 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
               <div className="flex mb-5">
-                <p className="bg-[#D6DFFF] text-[#3F427B] p-5 text-3xl font-bold rounded-xl ">87</p>
+                <p className="bg-[#D6DFFF] text-[#3F427B] p-5 text-3xl font-bold rounded-xl ">7</p>
               </div>
-              <p className="text-xl font-medium text-[#3F427B]">Feedback Pengguna</p>
+              <p className="text-xl font-medium text-[#3F427B]">In Progress</p>
             </div>
 
             <div className=" card p-8 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
               <div className="flex mb-5">
-                <p className="bg-[#FFD6E2] text-[#E82660] p-5 text-3xl font-bold rounded-xl ">1,304</p>
+                <p className="bg-[#FFD6E2] text-[#E82660] p-5 text-3xl font-bold rounded-xl ">25</p>
               </div>
-              <p className="text-xl font-medium text-[#3F427B]">Kunjungan Hari Ini</p>
+              <p className="text-xl font-medium text-[#3F427B]">Completed</p>
             </div>
 
-            <div class="card mt-20 p-8 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
+            <div class="card mt-6 p-10 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
               <Doughnut width={10} height={50} data={data} />
+              <p className="text-xl font-medium text-[#3F427B]">Product</p>
             </div>
+            <div class="card mt-6 p-10 bg-white drop-shadow-[0_35px_35px_rgba(168,170,225,0.15)]">
+              <Calendar onChange={onChange} value={value} />
+            </div>
+
 
           </div>
         </div>
-
-
-
-
-
-
 
       </div>
 
